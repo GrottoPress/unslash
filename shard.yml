@@ -1,0 +1,11 @@
+name: unslash
+version: 0.1.0
+description: A Crystal HTTP Handler to remove trailing slashes from URLs
+
+authors:
+  - GrottoPress <info@grottopress.com>
+  - N Atta Kusi Adusei
+
+license: MIT
+
+crystal: ~> 1.0
