@@ -12,8 +12,9 @@ class Unslash::Handler
 
   def call(context : HTTP::Server::Context) : Nil
     request, response = context.request, context.response
+    path = request.path
 
-    if (path = request.path) == "/" ||
+    if path == "/" ||
       !path.ends_with?("/") ||
       @safe && !request.method.in?(SAFE_METHODS)
 
