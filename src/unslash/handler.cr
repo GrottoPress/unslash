@@ -1,8 +1,6 @@
 class Unslash::Handler
   include HTTP::Handler
 
-  private SAFE_METHODS = {"GET", "HEAD"}
-
   def initialize(@status : HTTP::Status = :permanent_redirect, *, @safe = false)
   end
 
@@ -16,7 +14,7 @@ class Unslash::Handler
 
     if path == "/" ||
       !path.ends_with?("/") ||
-      @safe && !request.method.in?(SAFE_METHODS)
+      @safe && !request.method.in?({"GET", "HEAD"})
 
       return call_next(context)
     end
